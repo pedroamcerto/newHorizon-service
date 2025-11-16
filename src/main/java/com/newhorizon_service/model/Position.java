@@ -23,8 +23,8 @@ public class Position extends Auditable {
 
     @ManyToMany
     @JoinTable(
-            name = "trail_competence",
-            joinColumns = @JoinColumn(name = "trail_id"),
+            name = "position_competence",
+            joinColumns = @JoinColumn(name = "position_id"),
             inverseJoinColumns = @JoinColumn(name = "competence_id")
     )
     private List<Competence> competences;

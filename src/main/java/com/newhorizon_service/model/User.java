@@ -9,6 +9,7 @@ import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
+@Table(name = "users")
 @Data
 public class User extends Auditable {
     @Id

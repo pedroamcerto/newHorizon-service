@@ -2,16 +2,17 @@ package com.newhorizon_service.service;
 
 import com.newhorizon_service.dto.competence.CreateCompetence;
 import com.newhorizon_service.dto.competence.GetCompetenceDto;
+import com.newhorizon_service.exception.NotFoundException;
 import com.newhorizon_service.model.Competence;
 import com.newhorizon_service.repository.CompetenceRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
+
+// Classe com as exceções customizadas para o cumprimento de requisitos
 @Service
 @RequiredArgsConstructor
 public class CompetenceService {
@@ -25,7 +26,7 @@ public class CompetenceService {
 
     public void update(String id, CreateCompetence dto) {
         Competence existingCompetence = repository.findById(id).orElseThrow(
-                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Competência não encontrada.")
+                () -> new NotFoundException("Competência não encontrada.")
         );
 
         Competence updatedCompetence = modelMapper.map(dto, Competence.class);
@@ -49,7 +50,7 @@ public class CompetenceService {
 
     public GetCompetenceDto getById(String id) {
         Competence competence = this.repository.findById(id).orElseThrow(
-                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Competência não encontrada.")
+                () -> new NotFoundException("Competência não encontrada.")
         );
 
         return modelMapper.map(competence, GetCompetenceDto.class);
@@ -57,7 +58,7 @@ public class CompetenceService {
 
     public void delete(String id) {
         Competence competence = this.repository.findById(id).orElseThrow(
-                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Competência não encontrada.")
+                () -> new NotFoundException("Competência não encontrada.")
         );
 
         this.repository.delete(competence);
