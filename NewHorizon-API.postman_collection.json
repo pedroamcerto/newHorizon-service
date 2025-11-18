@@ -610,6 +610,133 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Analysis",
+			"item": [
+				{
+					"name": "Analyze User Position Fit",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/analysis/users/{{user_id}}/position-fit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"analysis",
+								"users",
+								"{{user_id}}",
+								"position-fit"
+							]
+						},
+						"description": "Analisa o fit do usuário com todas as posições disponíveis"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Profile Analysis",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/analysis/users/{{user_id}}/profile",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"analysis",
+								"users",
+								"{{user_id}}",
+								"profile"
+							]
+						},
+						"description": "Obtém análise detalhada do perfil do usuário"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Trail Recommendations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/analysis/users/{{user_id}}/trail-recommendations",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"analysis",
+								"users",
+								"{{user_id}}",
+								"trail-recommendations"
+							]
+						},
+						"description": "Recomenda trilhas para o usuário baseado em gaps de competências"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Positions by Trail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/analysis/trails/{{trail_id}}/positions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"analysis",
+								"trails",
+								"{{trail_id}}",
+								"positions"
+							]
+						},
+						"description": "Lista posições compatíveis com uma trilha específica"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Candidates by Position",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/analysis/positions/{{position_id}}/candidates?minFit=70",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"analysis",
+								"positions",
+								"{{position_id}}",
+								"candidates"
+							],
+							"query": [
+								{
+									"key": "minFit",
+									"value": "70",
+									"description": "Percentual mínimo de fit"
+								}
+							]
+						},
+						"description": "Busca usuários que têm fit com uma posição específica"
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"variable": [
